@@ -1,0 +1,54 @@
+N = int(input())
+deque = []
+prt= []
+
+for i in range(N):
+    inputs = input().split()
+    
+    if len(inputs) == 1:
+        s = inputs[0]
+        if s == "pop_front":
+            if deque:
+                prt.append(deque[0])
+                deque.pop(0)
+            else:
+                prt.append(-1)
+        elif s == "pop_back":
+            if deque:
+                prt.append(deque[-1])
+                deque.pop()
+            else:
+                prt.append(-1)
+        elif s == "front":
+            if deque:
+                prt.append(deque[0])
+            else:
+                prt.append(-1)
+        elif s == "back":
+            if deque:
+                prt.append(deque[-1])
+            else:
+                prt.append(-1)
+        elif s == "empty":
+            if deque:
+                prt.append(0)
+            else:
+                prt.append(1)
+        elif s == "size":
+            prt.append(len(deque))
+        else:
+            print("error")
+    elif len(inputs) == 2:
+        s, n = inputs
+        n = int(n)
+        if s == "push_front":
+            deque = [n] + deque
+        elif s == "push_back":
+            deque.append(n)
+        else:
+            print("error")
+    else:
+        print("error")
+
+for i in prt:
+    print(i)

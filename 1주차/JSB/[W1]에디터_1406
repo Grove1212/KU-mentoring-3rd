@@ -1,0 +1,41 @@
+strings = list(input().split())
+M = int(input())
+cursor = len(strings) # 커서 위치
+
+for i in range(M):
+    inputs = input().split()
+
+    if len(inputs) == 1:
+        s = inputs[0]
+        if s == "L" and cursor != 0:
+            cursor -= 1
+        elif s == "D" and cursor != len(strings):
+            cursor += 1
+        elif s == "B" and cursor != 0:
+            strings.pop(cursor)
+            cursor -= 1
+  
+    elif len(inputs) == 2:
+        s, n = inputs
+        if s == "P":
+            strings = strings[:cursor] + [n] + strings[cursor:]
+        else:
+            print("error")
+    
+    else:
+        print("error")
+  
+
+for i in strings:
+    print(i, end="")
+
+//피드백 
+1. print("error")로 오류가 났음을 친절하게 설명해준 부분이 좋았습니다. 다만 백준 문제를 해결하는데에 있어서는 굳이 필요한 코드는 아닌것 같습니다.
+왜냐하면 문제자체에서 오타가 없는 입력값을 정의했기 때문입니다. 문제와는 별개로 error를 표시해주는 코딩은 좋은것 같습니다.
+따라서 18~26번의 코드는 다음과 같이 수정될 수 있을것 같습니다
+
+else:
+    strings = strings[:cursor] + [inputs[n]] + strings[cursor:]
+
+2. deque를 사용하지 않았음을 보고 마우스 커서부분에 어떻게 문자를 삽입했을지 궁금했는데
+strings = strings[:cursor] + [n] + strings[cursor:] 이 코드를 보고 감탄했습니다. 아이디어가 정말 좋다는 생각이 들었습니다.
