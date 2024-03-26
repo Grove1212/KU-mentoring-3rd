@@ -1,0 +1,41 @@
+N = int(input())
+stack = []
+prt= []
+
+for i in range(N):
+    inputs = input().split()
+
+    if len(inputs) == 1:
+        s = inputs[0]
+        if s == "pop":
+            if stack:
+                prt.append(stack[-1])
+                stack.pop()
+            else:
+                prt.append(-1)
+        elif s == "top":
+            if stack:
+                prt.append(stack[-1])
+            else:
+                prt.append(-1)
+        elif s == "empty":
+            if stack:
+                prt.append(0)
+            else:
+                prt.append(1)
+        elif s == "size":
+            prt.append(len(stack))
+        else:
+            print("error")
+    elif len(inputs) == 2:
+        s, n = inputs
+        n = int(n)
+        if s == "push":
+            stack.append(n)
+        else:
+            print("error")
+    else:
+        print("error")
+
+for i in prt:
+    print(i)
