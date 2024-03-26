@@ -1,0 +1,30 @@
+strings = list(input().split())
+M = int(input())
+cursor = len(strings) # 커서 위치
+
+for i in range(M):
+    inputs = input().split()
+
+    if len(inputs) == 1:
+        s = inputs[0]
+        if s == "L" and cursor != 0:
+            cursor -= 1
+        elif s == "D" and cursor != len(strings):
+            cursor += 1
+        elif s == "B" and cursor != 0:
+            strings.pop(cursor)
+            cursor -= 1
+  
+    elif len(inputs) == 2:
+        s, n = inputs
+        if s == "P":
+            strings = strings[:cursor] + [n] + strings[cursor:]
+        else:
+            print("error")
+    
+    else:
+        print("error")
+  
+
+for i in strings:
+    print(i, end="")
