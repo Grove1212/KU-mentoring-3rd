@@ -1,0 +1,46 @@
+N = int(input())
+queue = []
+prt= []
+
+for i in range(N):
+    inputs = input().split()
+
+    if len(inputs) == 1:
+        s = inputs[0]
+        if s == "pop":
+            if queue:
+                prt.append(queue[0])
+                queue.pop(0)
+            else:
+                prt.append(-1)
+        elif s == "front":
+            if queue:
+                prt.append(queue[0])
+            else:
+                prt.append(-1)
+        elif s == "back":
+            if queue:
+                prt.append(queue[-1])
+            else:
+                prt.append(-1)
+        elif s == "empty":
+            if queue:
+                prt.append(0)
+            else:
+                prt.append(1)
+        elif s == "size":
+            prt.append(len(queue))
+        else:
+            print("error")
+    elif len(inputs) == 2:
+        s, n = inputs
+        n = int(n)
+        if s == "push":
+            queue.append(n)
+        else:
+            print("error")
+    else:
+        print("error")
+
+for i in prt:
+    print(i)
