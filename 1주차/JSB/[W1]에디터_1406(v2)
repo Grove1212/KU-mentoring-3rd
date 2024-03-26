@@ -22,3 +22,9 @@ for _ in range(int(sys.stdin.readline())):
         
 st1.extend(reversed(st2))
 print(''.join(st1))
+
+
+// version 1에 비해서 코드가 훨씬 간결해졌습니다. 피드백했었던 error부분이 전부 없어졌고
+cursor를 기준으로 st1 stack과 st2 stack을 사용한부분이 인상적이었습니다
+
+// if st1:을 사용해서 문자열이 비어있는 상황에서 L이 입력되었을때의 예외 상황을 간결하게 처리한것 같아 인상적이었습니다.
