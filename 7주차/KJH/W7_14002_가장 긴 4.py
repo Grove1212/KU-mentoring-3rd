@@ -5,11 +5,19 @@
 
 n=int(input())
 arr=list(map(int,input().split()))
+dp=[1]*n
+for i in range(n):
+    for j in range(i):
+        if arr[i]>arr[j]:
+            dp[i]=max(dp[j]+1,dp[i])
+M = max(dp)
+print(M)
 
-result=arr[0]
-dp=[[] for _ in range(n)]
-print(dp)
-print(dp)
-for i in range(1,n):
-    dp[i]=max(result+arr[i],result)
-print(max(dp))
+arr2=[]
+for i in range(n-1,-1,-1):
+    if dp[i]==M:
+        arr2.append(arr[i])
+        M-=1
+arr2.sort()
+arr2=list(map(str,arr2)) #join함수는 str만 가능
+print(" ".join(arr2)) #join이 아닌 for문으로도 출력 가능)
